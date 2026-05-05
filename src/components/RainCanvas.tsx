@@ -21,9 +21,9 @@ export default function RainCanvas({ videoRef }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (!canvasRef.current || !videoRef.current) return;
     const canvas = canvasRef.current;
     const video = videoRef.current;
-    if (!canvas || !video) return;
     const ctx = canvas.getContext("2d")!;
 
     // 마스크 읽기 전용 오프스크린 캔버스
